@@ -2,7 +2,8 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, flash
 import vercel_blob
 
-app = Flask(__name__, template_folder='../templates')
+# Sửa lại dòng này để Vercel định vị chính xác thư mục templates
+app = Flask(__name__, template_folder=os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates')))
 app.secret_key = "super_secret_key"
 
 # Vercel sẽ tự động đọc token lưu trữ khi bạn bấm nút Connect Storage lúc nãy
